@@ -44,6 +44,9 @@ namespace react_asp_core_template
                 app.UseHsts();
             }
 
+			//make sure this is called before app.UseMVC otherwise it will have no effect on the incoming requests
+			app.UseCors(builder => builder.WithOrigins("https://localhost:3000"));
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
@@ -63,7 +66,8 @@ namespace react_asp_core_template
 
                 if (env.IsDevelopment())
                 {
-                    spa.UseReactDevelopmentServer(npmScript: "start");
+					//spa.UseReactDevelopmentServer(npmScript: "start");
+					spa.UseProxyToSpaDevelopmentServer("https://localhost:3000");
                 }
             });
         }
