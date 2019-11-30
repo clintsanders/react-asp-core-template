@@ -3,7 +3,7 @@ Template project for new React web applications with Web API backend
 
 The project was created by executing the following command in the root project directory
 
-  `dontnet new react`
+  `dotnet new react`
   
 ## Configure IIS Express to use self-signed certificate
 Usually on the dev machine you will get the error 
@@ -33,6 +33,10 @@ Add the following browser settings
 
 `HTTPS=true`
 
+`REACT_APP_API_URL=https://localhost:44392`
+
+The port number used in the url setting can be found in properties/launchSettings.json under iisSettings
+
 Now you will need to launch the React application manually.  From the ClientApp dir execute the following command
 
 `npm start`
@@ -52,8 +56,17 @@ Add the following to startup.cs to allow CORS for the app to utilize the API run
 ```c#
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
-  //make sure this is called before app.UseMVC otherwise it will have on effect on the incoming requests
+  //make sure this is called before app.UseMVC otherwise it will have no effect on the incoming requests
   app.UseCors(builder => builder.WithOrigins("https://localhost:3000"));  
 }
+```
+
+The last modification is to update FetchData.js to use api url setting that was added in .env.development
+```javascript
+async populateWeatherData() {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/api/weatherforecast`);
+  const data = await response.json();
+  this.setState({ forecasts: data, loading: false });
+ }
 ```
 
