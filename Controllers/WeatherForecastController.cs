@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace react_asp_core_template.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
