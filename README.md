@@ -61,3 +61,12 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
+The last modification is to update FetchData.js to use api url setting that was added in .env.development
+```javascript
+async populateWeatherData() {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/api/weatherforecast`);
+  const data = await response.json();
+  this.setState({ forecasts: data, loading: false });
+ }
+```
+
