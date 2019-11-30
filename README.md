@@ -2,6 +2,7 @@
 Template project for new React web applications with Web API backend
 
 The project was created by executing the following command in the root project directory
+
   `dontnet new react`
   
 ## Configure IIS Express to use self-signed certificate
