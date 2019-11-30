@@ -33,6 +33,10 @@ Add the following browser settings
 
 `HTTPS=true`
 
+`REACT_APP_API_URL=https://localhost:44392`
+
+The port number used in the url setting can be found in properties/launchSettings.json under iisSettings
+
 Now you will need to launch the React application manually.  From the ClientApp dir execute the following command
 
 `npm start`
