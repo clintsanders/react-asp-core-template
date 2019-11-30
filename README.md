@@ -3,7 +3,7 @@ Template project for new React web applications with Web API backend
 
 The project was created by executing the following command in the root project directory
 
-  `dontnet new react`
+  `dotnet new react`
   
 ## Configure IIS Express to use self-signed certificate
 Usually on the dev machine you will get the error 
