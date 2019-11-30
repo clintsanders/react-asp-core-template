@@ -30,6 +30,7 @@ Add a .env.development file to the ClientApp directory
 Add the following browser settings
 
 `BROWSER=none`
+
 `HTTPS=true`
 
 Now you will need to launch the React application manually.  From the ClientApp dir execute the following command
