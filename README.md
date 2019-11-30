@@ -51,8 +51,7 @@ Add the following to startup.cs to allow CORS for the app to utilize the API run
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
   //make sure this is called before app.UseMVC otherwise it will have on effect on the incoming requests
-  app.UseCors(builder => builder.WithOrigins("https://localhost:3000"));
-  
+  app.UseCors(builder => builder.WithOrigins("https://localhost:3000"));  
 }
 ```
 
