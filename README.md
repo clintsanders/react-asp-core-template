@@ -8,6 +8,7 @@ The project was created by executing the following command in the root project d
 ## Identity Server SQL Database Setup
 Apply entity framework migrations to create tables used by Identity Server
 From the package manager console execute the following command
+
 `PM> update-database`
 
 
