@@ -6,6 +6,11 @@ The project was created by executing the following command in the root project d
   `dotnet new react --auth individual -uld`
   
 ## Identity Server SQL Database Setup
+Apply entity framework migrations to create tables used by Identity Server
+From the package manager console execute the following command
+`PM> update-database`
+
+
 A mssql database file is created and by default is placed in the user directory
 `C:\Users\{Current User}`
 This directory is not accessible in SSMS when trying to attach the database file. Move the .mdf and .ldf files to the following location for development purposes then attach the database to the local sql server to view the table data.
