@@ -3,7 +3,27 @@ Template project for new React web applications with Web API backend
 
 The project was created by executing the following command in the root project directory
 
-  `dotnet new react`
+  `dotnet new react --auth individual -uld`
+  
+## Identity Server SQL Database Setup
+A mssql database file is created and by default is placed in the user directory
+`C:\Users\{Current User}`
+This directory is not accessible in SSMS when trying to attach the database file. Move the .mdf and .ldf files to the following location for development purposes then attach the database to the local sql server to view the table data.
+`C:\Program Files\Microsoft SQL Server\MSSQLXX.SQLEXPRESS\MSSQL\DATA`
+
+Update the connection string in AppSettings.json
+```json
+"ConnectionStrings": {
+  "IdentityConnection": "Server=INS15-CS\\SQLEXPRESS;Database=identity-users;Trusted_Connection=True;MultipleActiveResultSets=true"
+}
+```
+
+In Startup.cs update the name of the connection string created in AppSettings.json in ConfigureServices()
+
+```c#
+services.AddDbContext<ApplicationDbContext>(options =>
+  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+```
   
 ## Configure IIS Express to use self-signed certificate
 Usually on the dev machine you will get the error 
